@@ -1,4 +1,4 @@
-/* ===== RESET & BASE ===== */
+/* Reset & Base */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -26,7 +26,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Scanline overlay for CRT feel */
+/* Scanline overlay */
 .scanlines {
     pointer-events: none;
     position: fixed;
@@ -41,7 +41,7 @@ body {
     z-index: 9999;
 }
 
-/* ===== MACHINE ===== */
+/* Machine */
 .machine {
     background: var(--card);
     border: 1px solid var(--border);
@@ -67,7 +67,7 @@ body {
 .machine::before { top: 12px; left: 12px; border-width: 2px 0 0 2px; }
 .machine::after  { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; }
 
-/* ===== TITLE ===== */
+/* Title */
 .title-wrap { text-align: center; margin-bottom: 20px; }
 
 .neon-title {
@@ -95,7 +95,7 @@ body {
     20%,24%,55% { opacity: 0.75; }
 }
 
-/* ===== BALANCE BAR ===== */
+/* Balance Bar */
 .balance-bar {
     display: flex;
     justify-content: space-between;
@@ -164,7 +164,7 @@ body {
     text-align: center;
 }
 
-/* ===== REELS ===== */
+/* REELS */
 .reels-wrap {
     display: flex;
     justify-content: center;
@@ -224,7 +224,7 @@ body {
     50% { box-shadow: 0 0 20px var(--yellow), 0 0 40px var(--yellow); background: rgba(255,230,0,0.1); }
 }
 
-/* ===== MESSAGE ===== */
+/* Message */
 .message {
     text-align: center;
     min-height: 28px;
@@ -239,7 +239,7 @@ body {
 .message.jackpot { color: var(--cyan); text-shadow: 0 0 20px var(--cyan); font-size: 1.1rem; }
 .message.lose  { color: rgba(255,80,80,0.8); }
 
-/* ===== SPIN BUTTON ===== */
+/* SPIN BUTTON */
 .lever {
     display: block;
     width: 100%;
@@ -272,7 +272,7 @@ body {
     cursor: not-allowed;
 }
 
-/* ===== BOTTOM BUTTONS ===== */
+/* Bottom Button */
 .bottom-btns {
     display: flex;
     gap: 10px;
@@ -309,7 +309,7 @@ body {
 }
 .reset-btn:hover { background: rgba(255,255,255,0.1); color: white; }
 
-/* ===== PANELS ===== */
+/* Panels */
 .panels {
     display: flex;
     gap: 10px;
@@ -348,7 +348,7 @@ body {
 .history-win  { color: var(--yellow) !important; }
 .history-jackpot { color: var(--cyan) !important; }
 
-/* ===== PAYOUT TABLE ===== */
+/* Payout Table */
 .payout-table {
     background: var(--card2);
     border: 1px solid var(--border);

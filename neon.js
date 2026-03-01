@@ -7,9 +7,8 @@ const symbols = [
 ];
 
 const bet_option = [5, 10, 25, 50, 100];
-let betIndex = 1; // default $10
+let betIndex = 1;
 
-// FIX: Load balance from storage correctly
 let balance = Number(localStorage.getItem("slotBalance")) || 1000;
 let lastWin = 0;
 let isSpinning = false;
@@ -30,11 +29,10 @@ const betDown       = document.getElementById("betDown");
 const betUp         = document.getElementById("betUp");
 const resetBtn      = document.getElementById("resetBtn");
 
-// ── Helpers ─────────────────────────────────────────────────
+// Functions
 
-function getBet() { return BET_OPTIONS[betIndex]; }
+function getBet() { return bet_option[betIndex]; }
 
-// FIX: typo was "balsnceDisplay" — now uses correct element
 function updateBalance() {
     balanceEl.textContent  = `$${balance}`;
     lastWinEl.textContent  = `$${lastWin}`;
@@ -78,7 +76,7 @@ function randomSymbol() {
     return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-// ── Audio ────────────────────────────────────────────────────
+// Audio 
 
 let audioCtx;
 
@@ -111,7 +109,7 @@ function playJackpot() {
 function playLose() { beep(180, 0.5, "sawtooth", 0.06); }
 function playSpin()  { beep(220, 0.3, "square", 0.05); }
 
-// ── Jackpot Overlay ──────────────────────────────────────────
+// Jackpot Overlay 
 
 function showJackpot(amount) {
     const ov = document.createElement("div");
@@ -125,7 +123,7 @@ function showJackpot(amount) {
     ov.querySelector(".jackpot-close").addEventListener("click", () => ov.remove());
 }
 
-// ── Reel Win Flash ───────────────────────────────────────────
+// Reel Win Flash 
 
 function flashReels() {
     [r1, r2, r3].forEach(r => {
@@ -134,7 +132,7 @@ function flashReels() {
     });
 }
 
-// ── Spin ─────────────────────────────────────────────────────
+// Spin 
 
 function spin() {
     if (isSpinning || balance < getBet()) return;
@@ -172,7 +170,7 @@ function spin() {
     });
 }
 
-// ── Check Win ────────────────────────────────────────────────
+// Check Win 
 
 function checkWin(results, bet) {
     const [a, b, c] = results;
@@ -212,9 +210,8 @@ function checkWin(results, bet) {
     }
 }
 
-// ── Double or Nothing ────────────────────────────────────────
+// Double or Nothing 
 
-// FIX: was "if(checkWin)" (calling wrong function as truthy) — now uses Math.random()
 function doubleOrNothing() {
     if (lastWin === 0) return;
     const stake = lastWin;
@@ -239,12 +236,12 @@ function doubleOrNothing() {
     updateLeaderboard();
 }
 
-// ── Bet Controls ─────────────────────────────────────────────
+// Bet Controls 
 
 function updateBetDisplay() {
-    betDisplay.textContent = `$${BET_OPTIONS[betIndex]}`;
+    betDisplay.textContent = `$${bet_option[betIndex]}`;
     betDown.disabled = betIndex === 0;
-    betUp.disabled   = betIndex === BET_OPTIONS.length - 1;
+    betUp.disabled   = betIndex === bet_option.length - 1;
 }
 
 betDown.addEventListener("click", () => {
@@ -252,10 +249,10 @@ betDown.addEventListener("click", () => {
 });
 
 betUp.addEventListener("click", () => {
-    if (betIndex < BET_OPTIONS.length - 1) { betIndex++; updateBetDisplay(); updateBalance(); }
+    if (betIndex < bet_option.length - 1) { betIndex++; updateBetDisplay(); updateBalance(); }
 });
 
-// ── Reset ────────────────────────────────────────────────────
+// Reset Button
 
 resetBtn.addEventListener("click", () => {
     if (!confirm("Reset your balance to $1000?")) return;
@@ -269,7 +266,7 @@ resetBtn.addEventListener("click", () => {
     doubleBtn.disabled = true;
 });
 
-// ── Lever Button ─────────────────────────────────────────────
+// Lever Button 
 
 leverBtn.addEventListener("click", () => {
     initAudio();
@@ -281,7 +278,7 @@ doubleBtn.addEventListener("click", () => {
     doubleOrNothing();
 });
 
-// ── Init ─────────────────────────────────────────────────────
+// Init 
 
 updateBetDisplay();
 updateBalance();
