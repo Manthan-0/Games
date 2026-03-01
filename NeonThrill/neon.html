@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Slot Machine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="neon.css">
+</head>
+<body>
+
+<div class="scanlines"></div>
+
+<div class="machine">
+
+    <div class="title-wrap">
+        <div class="neon-title">NEON THRILL</div>
+        <div class="sub-title">◈ S L O T S ◈</div>
+    </div>
+
+    <div class="balance-bar">
+        <div class="bal-block">
+            <span class="bal-label">CREDITS</span>
+            <span id="balance">$1000</span>
+        </div>
+        <div class="bal-block">
+            <span class="bal-label">BET</span>
+            <div class="bet-controls">
+                <button id="betDown">−</button>
+                <span id="betDisplay">$10</span>
+                <button id="betUp">+</button>
+            </div>
+        </div>
+        <div class="bal-block">
+            <span class="bal-label">LAST WIN</span>
+            <span id="lastWinDisplay">$0</span>
+        </div>
+    </div>
+
+    <div class="reels-wrap">
+        <div class="reel-outer">
+            <div class="reel" id="r1">❔</div>
+        </div>
+        <div class="reel-sep">◈</div>
+        <div class="reel-outer">
+            <div class="reel" id="r2">❔</div>
+        </div>
+        <div class="reel-sep">◈</div>
+        <div class="reel-outer">
+            <div class="reel" id="r3">❔</div>
+        </div>
+    </div>
+
+    <div id="message" class="message">Insert credits and spin!</div>
+
+    <button class="lever" id="lever">⚡ SPIN ⚡</button>
+
+    <div class="bottom-btns">
+        <button id="doublebut" disabled class="double-btn">🎲 Double or Nothing</button>
+        <button id="resetBtn" class="reset-btn">↺ Reset</button>
+    </div>
+
+    <div class="panels">
+        <div class="panel-wrap">
+            <div class="panel-title">📜 HISTORY</div>
+            <div class="panel" id="history"></div>
+        </div>
+        <div class="panel-wrap">
+            <div class="panel-title">🏆 TOP SCORES</div>
+            <div class="panel" id="leaderboard"></div>
+        </div>
+    </div>
+
+    <div class="payout-table">
+        <div class="pt-title">PAYTABLE</div>
+        <div class="pt-row"><span>3 × 🪙</span><span class="pt-val jackpot-text">×10 BET</span></div>
+        <div class="pt-row"><span>3 × ⭐</span><span class="pt-val jackpot-text">×10 BET</span></div>
+        <div class="pt-row"><span>3 × same</span><span class="pt-val">×10 BET</span></div>
+        <div class="pt-row"><span>2 × same</span><span class="pt-val">×3 BET</span></div>
+    </div>
+
+</div>
+
+<script src="neon.js"></script>
+</body>
+</html>
